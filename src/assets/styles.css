@@ -1,0 +1,6 @@
+.char-cell {
+    border: 1px solid gray;
+    padding: 6px;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.521);
+    margin: 5px;
+}

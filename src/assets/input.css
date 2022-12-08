@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .gss-cell {
+        @apply flex items-center justify-center w-9 h-10 border-solid border-b-2 border-black;
+    }
+}
