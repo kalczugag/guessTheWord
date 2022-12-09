@@ -10,6 +10,7 @@
     </head>
     <body class="font-mono">
         <div class="flex flex-col items-center justify-between space-y-8 mt-16">
+            <button onclick="createLetterCell()">Generate</button>
             <div class="text-5xl text-blue-600">Odgadnij słowo</div>
             <div class="text-xl text-blue-400">Masz tylko 5 prób</div>
             <div class="text-3xl text-blue-600">
@@ -20,35 +21,20 @@
             class="flex flex-col items-center justify-between mt-52 space-y-10"
         >
             <section
+                id="chars-container"
                 class="flex flex-row items-center justify-between text-3xl space-x-5"
             >
-                <div class="gss-cell"></div>
-                <div class="gss-cell"></div>
-                <div class="gss-cell"></div>
-                <div class="gss-cell"></div>
-                <div class="gss-cell"></div>
-                <div class="gss-cell"></div>
-                <div class="gss-cell"></div>
+                <!-- <div class="gss-cell"></div> -->
             </section>
             <section class="flex flex-row flex-wrap max-w-xl">
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
-                <div class="char-cell">A</div>
+                <div class="scene scene--card">
+                    <div class="card">
+                        <div class="card__face card__face--front">A</div>
+                        <div class="card__face card__face--back">A</div>
+                    </div>
+                </div>
             </section>
         </div>
+        <script src="../dist/main.js"></script>
     </body>
 </html>
