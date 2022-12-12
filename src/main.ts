@@ -1,7 +1,14 @@
+const cards = document.querySelectorAll(".card");
+const trialsLeft = document.querySelector("#trialsLeft") as HTMLSpanElement;
+const cardsContainer = document.querySelector("#cardsContainer") as any;
+const cardFace = document.querySelector(".card__face") as HTMLDivElement;
+const lettersContainer = document.querySelector("#chars-container") as any;
+
 window.onload = () => {
     fillCardsFace();
 
-    cards.forEach((card) => {
+    const cardsScnd = document.querySelectorAll(".card");
+    cardsScnd.forEach((card) => {
         card.addEventListener("click", () => {
             card.classList.add("is-flipped");
             let n: any = card.textContent;
@@ -18,11 +25,6 @@ window.onload = () => {
     guessedLetterInput();
 };
 
-const cards = document.querySelectorAll(".card");
-const trialsLeft = document.querySelector("#trialsLeft") as HTMLSpanElement;
-const cardsContainer = document.querySelector("#cardsContainer") as any;
-const cardFace = document.querySelector(".card__face") as HTMLDivElement;
-const lettersContainer = document.querySelector("#chars-container") as any;
 const words: string[] = [
     "sowa",
     "alfabet",
@@ -37,23 +39,6 @@ const words: string[] = [
 //prettier-ignore
 const alphabet: string[] = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","W","X","Y","Z",
 ];
-
-const newGame = () => {
-    createLetterCell();
-    guessedLetterInput();
-
-    trials = 5;
-    resultDiv.innerHTML = `Pozostało prób: <span id="trialsLeft">${trials}</span>`;
-    wordArrLength = 0;
-
-    cards.forEach((card) => {
-        card.addEventListener("click", () => {
-            card.classList.add("is-flipped");
-            let n: any = card.textContent;
-            n = n.replace(/\s+/g, " ");
-        });
-    });
-};
 
 const fillCardsFace = () => {
     for (let i = 0; i < alphabet.length; i++) {
@@ -93,18 +78,17 @@ const clearWordCells = () => {
     lettersContainer.innerHTML = "";
 };
 
-const guessedLetterInput = () => {
-    document.addEventListener("keypress", (e) => {
-        const charCode = e.keyCode;
+const keyboardInputFunction = (e: KeyboardEvent) => {
+    const charCode = e.keyCode;
 
-        if (
-            (charCode > 64 && charCode < 91) ||
-            (charCode > 96 && charCode < 123)
-        ) {
-            compareLetters(e.key);
-            return true;
-        }
-    });
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)) {
+        compareLetters(e.key);
+        return true;
+    }
+};
+
+const guessedLetterInput = () => {
+    document.addEventListener("keypress", (key) => keyboardInputFunction(key));
 };
 
 const resultDiv = document.querySelector("#trialsText") as HTMLDivElement;
@@ -138,6 +122,7 @@ const compareLetters = (input: string) => {
         } else {
             resultDiv.innerHTML = "Skończyły się próby. Przegrałeś!";
             deleteEventListeners();
+            restartGame(2000);
         }
     } else if (
         index.length != 0 &&
@@ -146,7 +131,14 @@ const compareLetters = (input: string) => {
     ) {
         resultDiv.innerHTML = "Brawo, Wygrałeś!";
         deleteEventListeners();
+        restartGame(2000);
     }
+};
+
+const restartGame = (timeout: number) => {
+    setTimeout(() => {
+        window.location.reload();
+    }, timeout);
 };
 
 const deleteEventListeners = () => {
