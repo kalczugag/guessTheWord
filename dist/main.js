@@ -1,7 +1,6 @@
 "use strict";
 window.onload = () => {
     fillCardsFace();
-    const cards = document.querySelectorAll(".card");
     cards.forEach((card) => {
         card.addEventListener("click", () => {
             card.classList.add("is-flipped");
@@ -12,9 +11,12 @@ window.onload = () => {
             // }
         });
     });
+    trialsLeft.innerHTML = trials.toString();
     createLetterCell();
     guessedLetterInput();
 };
+const cards = document.querySelectorAll(".card");
+const trialsLeft = document.querySelector("#trialsLeft");
 const cardsContainer = document.querySelector("#cardsContainer");
 const cardFace = document.querySelector(".card__face");
 const lettersContainer = document.querySelector("#chars-container");
@@ -32,6 +34,20 @@ const words = [
 //prettier-ignore
 const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "W", "X", "Y", "Z",
 ];
+const newGame = () => {
+    createLetterCell();
+    guessedLetterInput();
+    trials = 5;
+    resultDiv.innerHTML = `Pozostało prób: <span id="trialsLeft">${trials}</span>`;
+    wordArrLength = 0;
+    cards.forEach((card) => {
+        card.addEventListener("click", () => {
+            card.classList.add("is-flipped");
+            let n = card.textContent;
+            n = n.replace(/\s+/g, " ");
+        });
+    });
+};
 const fillCardsFace = () => {
     for (let i = 0; i < alphabet.length; i++) {
         cardsContainer.innerHTML += `<div class="scene scene--card">
@@ -47,13 +63,13 @@ const generateRandomWord = () => {
     let randomWord = words[random];
     return randomWord;
 };
+let wordArr;
+let wordArrLength = 0;
 const createLetterCell = () => {
     let word = generateRandomWord();
     let chars = word.split("");
-    localStorage.setItem("word", JSON.stringify(word));
-    localStorage.setItem("chars", JSON.stringify(chars));
+    wordArr = chars;
     clearWordCells();
-    console.log(word);
     for (let i = 0; i < word.length; i++) {
         const elem = document.createElement("div");
         elem.classList.add("gss-cell");
@@ -73,17 +89,45 @@ const guessedLetterInput = () => {
         }
     });
 };
+const resultDiv = document.querySelector("#trialsText");
+let trials = 5;
 const compareLetters = (input) => {
-    const lettersContainerAsAll = document.querySelectorAll("#chars-container");
-    let wordString = JSON.parse(localStorage.getItem("word") || "");
-    let wordArr = JSON.parse(localStorage.getItem("chars") || "");
-    let wordIndex = -1;
+    const lettersContainerAsAll = lettersContainer.querySelectorAll(".gss-cell");
+    let index = [];
     for (let i = 0; i < wordArr.length; i++) {
-        if (input == wordArr[i]) {
-            wordIndex = wordArr.indexOf(input);
+        if (wordArr[i] == input &&
+            lettersContainerAsAll[i].innerHTML != input) {
+            index.push(i);
+            index.forEach((el) => {
+                lettersContainerAsAll[el].innerHTML = input;
+            });
+            wordArrLength++;
         }
     }
-    //set value on lettersContainer choosen element
-    //for now not working dont know why
-    lettersContainer[wordIndex] = input;
+    if (index.length == 0) {
+        if (trials != 1) {
+            trials--;
+            trialsLeft.innerHTML = trials.toString();
+        }
+        else {
+            resultDiv.innerHTML = "Skończyły się próby. Przegrałeś!";
+            deleteEventListeners();
+        }
+    }
+    else if (index.length != 0 &&
+        wordArrLength != 0 &&
+        wordArrLength == wordArr.length) {
+        resultDiv.innerHTML = "Brawo, Wygrałeś!";
+        deleteEventListeners();
+    }
+};
+const deleteEventListeners = () => {
+    cards.forEach((card) => {
+        card.addEventListener("click", (event) => {
+            event.stopImmediatePropagation();
+        }, true);
+    });
+    document.addEventListener("keypress", (event) => {
+        event.stopImmediatePropagation();
+    }, true);
 };

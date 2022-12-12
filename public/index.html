@@ -10,11 +10,11 @@
     </head>
     <body class="font-mono">
         <div class="flex flex-col items-center justify-between space-y-8 mt-16">
-            <button onclick="createLetterCell()">Generate</button>
+            <button onclick="newGame()">Generate</button>
             <div class="text-5xl text-blue-600">Odgadnij słowo</div>
             <div class="text-xl text-blue-400">Masz tylko 5 prób</div>
-            <div class="text-3xl text-blue-600">
-                Pozostało prób: <span>5</span>
+            <div id="trialsText" class="text-3xl text-blue-600">
+                Pozostało prób: <span id="trialsLeft"></span>
             </div>
         </div>
         <div
