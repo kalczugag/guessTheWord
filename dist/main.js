@@ -181,85 +181,76 @@ const keyboardInputFunction = (e) => {
 };
 const flipCardOnKeyboardInput = (input) => {
     const cardThrd = document.querySelectorAll(".card");
-    const checkIfLetterExistInArray = () => {
-        let otp = false;
-        for (let i = 0; i < wordArr.length; i++) {
-            if (wordArr[i] == input) {
-                otp = true;
-            }
-        }
-        return otp;
-    };
-    if (input == "a" && checkIfLetterExistInArray()) {
+    if (input == "a") {
         cardThrd[0].classList.add("is-flipped");
     }
-    else if (input == "b" && checkIfLetterExistInArray()) {
+    else if (input == "b") {
         cardThrd[1].classList.add("is-flipped");
     }
-    else if (input == "c" && checkIfLetterExistInArray()) {
+    else if (input == "c") {
         cardThrd[2].classList.add("is-flipped");
     }
-    else if (input == "d" && checkIfLetterExistInArray()) {
+    else if (input == "d") {
         cardThrd[3].classList.add("is-flipped");
     }
-    else if (input == "e" && checkIfLetterExistInArray()) {
+    else if (input == "e") {
         cardThrd[4].classList.add("is-flipped");
     }
-    else if (input == "f" && checkIfLetterExistInArray()) {
+    else if (input == "f") {
         cardThrd[5].classList.add("is-flipped");
     }
-    else if (input == "g" && checkIfLetterExistInArray()) {
+    else if (input == "g") {
         cardThrd[6].classList.add("is-flipped");
     }
-    else if (input == "h" && checkIfLetterExistInArray()) {
+    else if (input == "h") {
         cardThrd[7].classList.add("is-flipped");
     }
-    else if (input == "i" && checkIfLetterExistInArray()) {
+    else if (input == "i") {
         cardThrd[8].classList.add("is-flipped");
     }
-    else if (input == "j" && checkIfLetterExistInArray()) {
+    else if (input == "j") {
         cardThrd[9].classList.add("is-flipped");
     }
-    else if (input == "k" && checkIfLetterExistInArray()) {
+    else if (input == "k") {
         cardThrd[10].classList.add("is-flipped");
     }
-    else if (input == "l" && checkIfLetterExistInArray()) {
+    else if (input == "l") {
         cardThrd[11].classList.add("is-flipped");
     }
-    else if (input == "m" && checkIfLetterExistInArray()) {
+    else if (input == "m") {
         cardThrd[12].classList.add("is-flipped");
     }
-    else if (input == "n" && checkIfLetterExistInArray()) {
+    else if (input == "n") {
         cardThrd[13].classList.add("is-flipped");
     }
-    else if (input == "o" && checkIfLetterExistInArray()) {
+    else if (input == "o") {
         cardThrd[14].classList.add("is-flipped");
     }
-    else if (input == "p" && checkIfLetterExistInArray()) {
+    else if (input == "p") {
         cardThrd[15].classList.add("is-flipped");
     }
-    else if (input == "r" && checkIfLetterExistInArray()) {
+    else if (input == "r") {
         cardThrd[16].classList.add("is-flipped");
     }
-    else if (input == "s" && checkIfLetterExistInArray()) {
+    else if (input == "s") {
         cardThrd[17].classList.add("is-flipped");
     }
-    else if (input == "t" && checkIfLetterExistInArray()) {
+    else if (input == "t") {
         cardThrd[18].classList.add("is-flipped");
     }
-    else if (input == "u" && checkIfLetterExistInArray()) {
+    else if (input == "u") {
         cardThrd[19].classList.add("is-flipped");
     }
-    else if (input == "w" && checkIfLetterExistInArray()) {
+    else if (input == "w") {
         cardThrd[20].classList.add("is-flipped");
     }
-    else if (input == "x" && checkIfLetterExistInArray()) {
+    else if (input == "x") {
         cardThrd[21].classList.add("is-flipped");
     }
-    else if (input == "y" && checkIfLetterExistInArray()) {
+    else if (input == "y") {
         cardThrd[22].classList.add("is-flipped");
     }
-    else if (input == "z" && checkIfLetterExistInArray()) {
+    else if (input == "z") {
         cardThrd[23].classList.add("is-flipped");
     }
 };
