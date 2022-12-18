@@ -74,99 +74,75 @@ const clearWordCells = () => {
 const cardValuesConversion = (n) => {
     let output = "";
     if (n == " A A ") {
-        output = "";
         output = "a";
     }
     else if (n == " B B ") {
-        output = "";
         output = "b";
     }
     else if (n == " C C ") {
-        output = "";
         output = "c";
     }
     else if (n == " D D ") {
-        output = "";
         output = "d";
     }
     else if (n == " E E ") {
-        output = "";
         output = "e";
     }
     else if (n == " F F ") {
-        output = "";
         output = "f";
     }
     else if (n == " G G ") {
-        output = "";
         output = "g";
     }
     else if (n == " H H ") {
-        output = "";
         output = "h";
     }
     else if (n == " I I ") {
-        output = "";
         output = "i";
     }
     else if (n == " J J ") {
-        output = "";
         output = "j";
     }
     else if (n == " K K ") {
-        output = "";
         output = "k";
     }
     else if (n == " L L ") {
-        output = "";
         output = "l";
     }
     else if (n == " M M ") {
-        output = "";
         output = "m";
     }
     else if (n == " N N ") {
-        output = "";
         output = "n";
     }
     else if (n == " O O ") {
-        output = "";
         output = "o";
     }
     else if (n == " P P ") {
-        output = "";
         output = "p";
     }
     else if (n == " R R ") {
-        output = "";
         output = "r";
     }
     else if (n == " S S ") {
-        output = "";
         output = "s";
     }
     else if (n == " T T ") {
-        output = "";
         output = "t";
     }
     else if (n == " U U ") {
-        output = "";
         output = "u";
     }
     else if (n == " W W ") {
-        output = "";
         output = "w";
     }
     else if (n == " X X ") {
-        output = "";
         output = "x";
     }
     else if (n == " Y Y ") {
-        output = "";
         output = "y";
     }
     else if (n == " Z Z ") {
-        output = "";
         output = "z";
     }
     compareLetters(output);
