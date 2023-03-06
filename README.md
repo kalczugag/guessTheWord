@@ -1,3 +1,3 @@
 # guessTheWord
 Live preview
-https://kalczugag.github.io/guessTheWord/
+https://kalczugag.github.io/guessTheWord/public
